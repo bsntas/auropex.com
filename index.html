@@ -142,63 +142,79 @@
       </div>
     </div>
 
-    <!-- Studio: live example builds -->
+    <!-- Studio: example solutions -->
     <section class="section" id="studio">
       <div class="wrap">
         <header class="section-head reveal">
           <p class="eyebrow"><span class="eyebrow-num">01</span> The studio</p>
           <h2 class="section-title">One studio. <em>Any business.</em></h2>
-          <p class="lead">Pick a kind of business and watch its solution come together. The site is only what customers see; behind it sit the orders, payments, stock, staff tools and records that run the business, shaped to fit how that business works.</p>
+          <p class="lead">Pick a kind of business and watch its solution come together: the system its people run the business from every day, with the apps, payments, records and website around it, shaped to fit how that business works.</p>
         </header>
 
         <div class="studio reveal">
-          <div class="studio-tabs" role="tablist" aria-label="Example businesses">
-            <button role="tab" id="tab-tea" aria-selected="true" aria-controls="studio-panel" data-site="tea"><span class="tab-emoji" aria-hidden="true">🍃</span>Tea estate</button>
-            <button role="tab" id="tab-stay" aria-selected="false" aria-controls="studio-panel" data-site="stay" tabindex="-1"><span class="tab-emoji" aria-hidden="true">🏔️</span>Homestay</button>
-            <button role="tab" id="tab-cafe" aria-selected="false" aria-controls="studio-panel" data-site="cafe" tabindex="-1"><span class="tab-emoji" aria-hidden="true">🥐</span>Bakery &amp; café</button>
-            <button role="tab" id="tab-school" aria-selected="false" aria-controls="studio-panel" data-site="school" tabindex="-1"><span class="tab-emoji" aria-hidden="true">🎒</span>School</button>
+          <div class="studio-tabs" role="tablist" aria-label="Example solutions">
+            <button role="tab" id="tab-school" aria-selected="true" aria-controls="studio-panel" data-solution="school"><span class="tab-emoji" aria-hidden="true">🎒</span>School management</button>
+            <button role="tab" id="tab-fleet" aria-selected="false" aria-controls="studio-panel" data-solution="fleet" tabindex="-1"><span class="tab-emoji" aria-hidden="true">🚙</span>Travel fleet</button>
+            <button role="tab" id="tab-shop" aria-selected="false" aria-controls="studio-panel" data-solution="shop" tabindex="-1"><span class="tab-emoji" aria-hidden="true">🛍️</span>E-commerce</button>
+            <button role="tab" id="tab-gym" aria-selected="false" aria-controls="studio-panel" data-solution="gym" tabindex="-1"><span class="tab-emoji" aria-hidden="true">🏋️</span>Gym membership</button>
+            <button role="tab" id="tab-hospital" aria-selected="false" aria-controls="studio-panel" data-solution="hospital" tabindex="-1"><span class="tab-emoji" aria-hidden="true">🏥</span>Hospital management</button>
           </div>
 
-          <div class="studio-body" id="studio-panel" role="tabpanel" aria-labelledby="tab-tea">
+          <div class="studio-body" id="studio-panel" role="tabpanel" aria-labelledby="tab-school">
             <div class="browser">
               <div class="browser-bar">
                 <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                <span class="url"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span data-f="url">glenmist.example</span></span>
-                <span class="viewport-tag" aria-hidden="true">What customers see</span>
+                <span class="url"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span data-f="url">erp.hillsideacademy.example</span></span>
+                <span class="viewport-tag" aria-hidden="true" data-f="view">Principal's desk</span>
               </div>
-              <div class="site" data-f="site" style="--s-accent:#2f6b3a;--s-bg:#f4f1e6;--s-ink:#1d2a1f;--s-soft:#e4ead9">
-                <div class="site-nav">
-                  <b data-f="name">Glenmist Tea</b>
-                  <span class="site-links"><span>Shop</span><span>Story</span><span>नेपाली</span></span>
-                  <span class="site-cart" aria-hidden="true">🛒 <span data-f="cart">2</span></span>
+              <div class="app" data-f="app" style="--s-accent:#1f4e8c;--s-bg:#f2f5fb;--s-ink:#0f1d33;--s-soft:#dfe7f5">
+                <div class="app-side">
+                  <b class="app-brand"><i aria-hidden="true"></i><span data-f="name">Hillside Academy</span></b>
+                  <ul class="app-nav" data-f="nav">
+                    <li class="on">Dashboard</li><li>Students</li><li>Fees</li><li>Attendance</li><li>Exams</li><li>Staff</li>
+                  </ul>
                 </div>
-                <div class="site-hero">
-                  <small data-f="kicker">Single estate · Darjeeling</small>
-                  <strong data-f="title">First flush, picked this spring.</strong>
-                  <p data-f="sub">Garden-fresh Darjeeling tea, packed at the estate and shipped across India.</p>
-                  <span class="site-btn" data-f="cta">Shop the harvest</span>
+                <div class="app-main">
+                  <div class="app-top">
+                    <div><small data-f="product">School management</small><strong data-f="title">Today at Hillside</strong></div>
+                    <span class="app-user" aria-hidden="true"></span>
+                  </div>
+                  <ul class="app-kpis" data-f="kpis">
+                    <li><span>Present today</span><b>612 / 648</b><small>94%</small></li>
+                    <li><span>Fees this term</span><b>₹18.4L</b><small>82% collected</small></li>
+                    <li><span>Board exams</span><b>Class X</b><small>from 3 March</small></li>
+                  </ul>
+                  <div class="app-panels">
+                    <section class="app-panel">
+                      <h4 data-f="listTitle">Fee dues</h4>
+                      <ul class="app-rows" data-f="rows">
+                        <li><b>Pema Lama · IX B</b><span>₹12,500</span><em class="warn">Due</em></li>
+                        <li><b>Arjun Rai · VII A</b><span>₹9,800</span><em class="ok">Paid</em></li>
+                        <li><b>Sonam Bhutia · X A</b><span>₹14,200</span><em class="info">Reminded</em></li>
+                      </ul>
+                    </section>
+                    <section class="app-panel">
+                      <h4 data-f="chartTitle">Attendance · this week</h4>
+                      <div class="app-chart" data-f="chart" aria-hidden="true"><i style="--v:88"></i><i style="--v:94"></i><i style="--v:92"></i><i style="--v:96"></i><i style="--v:90"></i><i style="--v:94"></i></div>
+                    </section>
+                  </div>
                 </div>
-                <ul class="site-items" data-f="items">
-                  <li><i style="--h:95"></i><b>First Flush</b><span>₹780 · 100 g</span></li>
-                  <li><i style="--h:40"></i><b>Muscatel</b><span>₹920 · 100 g</span></li>
-                  <li><i style="--h:20"></i><b>Autumnal</b><span>₹640 · 100 g</span></li>
-                </ul>
               </div>
             </div>
 
             <aside class="studio-side">
               <p class="side-label">The whole solution</p>
               <ul class="modules" data-f="modules">
-                <li>Online store</li><li>UPI &amp; cards</li><li>GST invoices</li><li>Stock &amp; dispatch</li><li>Sales reports</li>
+                <li>Admissions</li><li>Fees &amp; receipts</li><li>Attendance</li><li>Exams &amp; report cards</li><li>Timetable</li><li>Staff &amp; payroll</li><li>Parent app</li>
               </ul>
               <p class="side-label">Build log</p>
               <ol class="log" data-f="log">
-                <li>Catalogue and stock kept in step with packing</li>
-                <li>UPI and card checkout connected</li>
-                <li>GST invoice sent with every order</li>
-                <li>Dispatch list and sales report each morning</li>
+                <li>Classes, staff and 648 students imported</li>
+                <li>Fees collected online with receipts</li>
+                <li>Teachers mark attendance on their phones</li>
+                <li>Report cards in the parent app on Google Play</li>
               </ol>
-              <p class="side-note">Illustrative examples of the kind of work we do. The website is one part of each solution, never the whole of it.</p>
+              <p class="side-note">Illustrative examples of the kind of work we do. Each is a whole solution: the dashboard shown, with the apps, payments, records and website around it.</p>
             </aside>
           </div>
         </div>
