@@ -99,52 +99,69 @@ document.addEventListener('pointermove', (e) => {
 }, { passive: true });
 
 /* ---------- Studio: example solutions ---------- */
-// Illustrative businesses (the page says so). The preview is the customer-facing part; modules and log
-// cover the whole solution behind it. Each is the same building blocks, shaped differently.
-const SITES = {
-  tea: {
-    url: 'glenmist.example', name: 'Glenmist Tea', cart: '2',
-    colors: { accent: '#2f6b3a', bg: '#f4f1e6', ink: '#1d2a1f', soft: '#e4ead9' },
-    kicker: 'Single estate · Darjeeling',
-    title: 'First flush, picked this spring.',
-    sub: 'Garden-fresh Darjeeling tea, packed at the estate and shipped across India.',
-    cta: 'Shop the harvest',
-    items: [['First Flush', '₹780 · 100 g', 95], ['Muscatel', '₹920 · 100 g', 40], ['Autumnal', '₹640 · 100 g', 20]],
-    modules: ['Online store', 'UPI & cards', 'GST invoices', 'Stock & dispatch', 'Sales reports'],
-    log: ['Catalogue and stock kept in step with packing', 'UPI and card checkout connected', 'GST invoice sent with every order', 'Dispatch list and sales report each morning'],
-  },
-  stay: {
-    url: 'kanchanview.example', name: 'Kanchan View', cart: '1',
-    colors: { accent: '#b4532a', bg: '#fbf3ec', ink: '#2b1a12', soft: '#f3e2d4' },
-    kicker: 'Homestay · 10 min from Chowrasta',
-    title: 'Wake up to Kanchenjunga.',
-    sub: 'Four rooms, home-cooked meals and a view of the range from every window.',
-    cta: 'Check dates',
-    items: [['Sunrise Room', '₹2,400 / night', 25], ['Family Suite', '₹3,800 / night', 200], ['Attic Room', '₹1,900 / night', 330]],
-    modules: ['Booking calendar', 'Advance payment', 'Housekeeping list', 'Guest register', 'Nepali & English'],
-    log: ['Rooms, rates and seasons added', 'Calendar stops double bookings', 'Advance paid by UPI on booking', 'Housekeeping and guest register kept for staff'],
-  },
-  cafe: {
-    url: 'mallroadbakery.example', name: 'Mall Road Bakery', cart: '3',
-    colors: { accent: '#9c3d54', bg: '#fff6f2', ink: '#2e1218', soft: '#f8e1e2' },
-    kicker: 'Baked every morning',
-    title: 'Fresh from the oven at seven.',
-    sub: 'Order ahead for pickup, or have it brought to your door in town.',
-    cta: 'Order now',
-    items: [['Ginger honey cake', '₹420', 30], ['Cheese buns', '₹60 each', 45], ['Chhurpi cookies', '₹180 / box', 15]],
-    modules: ['Menu & ordering', 'Pickup slots', 'Kitchen screen', 'Ingredient stock', 'Daily takings'],
-    log: ['Menu with photos and daily specials', 'Orders show on the kitchen screen', 'Ingredients counted down as orders come', 'Paid by UPI, takings totalled each night'],
-  },
+// Illustrative businesses (the page says so). The preview is the dashboard its people run the business from;
+// modules and log cover the whole solution around it (apps, website, payments, records).
+// kpis: [label, value, note]; rows: [what, detail, status, tone ok|warn|info]; chart: bar heights 0–100.
+const SOLUTIONS = {
   school: {
-    url: 'hillsideacademy.example', name: 'Hillside Academy', cart: '!',
+    url: 'erp.hillsideacademy.example', name: 'Hillside Academy', product: 'School management', view: "Principal's desk",
     colors: { accent: '#1f4e8c', bg: '#f2f5fb', ink: '#0f1d33', soft: '#dfe7f5' },
-    kicker: 'For parents and students',
-    title: 'Admissions open for 2027–28.',
-    sub: 'Notices, fees and results for parents, in Nepali and English, on the web and Android.',
-    cta: 'Apply online',
-    items: [['Pay term fees', 'UPI or card', 215], ['Notice board', '3 new notices', 260], ['Results', 'Class X', 160]],
-    modules: ['Parent app', 'Fee collection', 'Attendance', 'Results & records', 'Notices & SMS'],
-    log: ['Classes, staff and parents imported', 'Fees collected online with receipts', 'Attendance and results kept by teachers', 'Android app published on Google Play'],
+    nav: ['Dashboard', 'Students', 'Fees', 'Attendance', 'Exams', 'Staff'],
+    title: 'Today at Hillside',
+    kpis: [['Present today', '612 / 648', '94%'], ['Fees this term', '₹18.4L', '82% collected'], ['Board exams', 'Class X', 'from 3 March']],
+    listTitle: 'Fee dues',
+    rows: [['Pema Lama · IX B', '₹12,500', 'Due', 'warn'], ['Arjun Rai · VII A', '₹9,800', 'Paid', 'ok'], ['Sonam Bhutia · X A', '₹14,200', 'Reminded', 'info']],
+    chartTitle: 'Attendance · this week', chart: [88, 94, 92, 96, 90, 94],
+    modules: ['Admissions', 'Fees & receipts', 'Attendance', 'Exams & report cards', 'Timetable', 'Staff & payroll', 'Parent app'],
+    log: ['Classes, staff and 648 students imported', 'Fees collected online with receipts', 'Teachers mark attendance on their phones', 'Report cards in the parent app on Google Play'],
+  },
+  fleet: {
+    url: 'ops.teestatravels.example', name: 'Teesta Travels', product: 'Fleet management', view: 'Dispatch',
+    colors: { accent: '#b4532a', bg: '#fbf5ef', ink: '#2b1a12', soft: '#f3e2d4' },
+    nav: ['Dispatch', 'Vehicles', 'Drivers', 'Bookings', 'Fuel', 'Service'],
+    title: 'Fleet on the road',
+    kpis: [['On trips', '18 of 24', '6 free'], ['Bookings today', '41', '9 online'], ['Fuel this week', '₹62,300', '4% less']],
+    listTitle: 'Live trips',
+    rows: [['WB 76 · Bagdogra → Darjeeling', 'Sangay', 'On time', 'ok'], ['SK 01 · Gangtok → NJP', 'Tashi', '12 min late', 'warn'], ['WB 74 · Mirik round trip', 'Bikash', 'Boarding', 'info']],
+    chartTitle: 'Trips · last 7 days', chart: [62, 70, 58, 74, 81, 96, 88],
+    modules: ['Bookings', 'Dispatch board', 'GPS tracking', 'Driver app', 'Fuel & expenses', 'Service reminders', 'Permits & papers'],
+    log: ['24 vehicles and 30 drivers added', 'Phone, web and agent bookings on one board', 'Drivers start and close trips in their app', 'Service and permit renewals flagged ahead'],
+  },
+  shop: {
+    url: 'admin.glenmist.example', name: 'Glenmist Tea', product: 'E-commerce platform', view: 'Store admin',
+    colors: { accent: '#2f6b3a', bg: '#f4f1e6', ink: '#1d2a1f', soft: '#e4ead9' },
+    nav: ['Overview', 'Orders', 'Products', 'Inventory', 'Customers', 'Payouts'],
+    title: 'Store overview',
+    kpis: [['Orders today', '86', '14% up'], ['Revenue', '₹1.42L', '71% by UPI'], ['Low stock', '3 items', 'reorder sent']],
+    listTitle: 'Recent orders',
+    rows: [['#1042 · Pune', '₹1,840', 'Packed', 'info'], ['#1041 · Kolkata', '₹920', 'Delivered', 'ok'], ['#1040 · Dubai', '$38', 'In customs', 'warn']],
+    chartTitle: 'Sales · last 7 days', chart: [54, 60, 66, 58, 72, 90, 84],
+    modules: ['Storefront & app', 'Catalogue', 'UPI, cards & abroad', 'GST invoices', 'Inventory', 'Shipping & returns', 'Customer accounts', 'Reports'],
+    log: ['Storefront, catalogue and app launched', 'Payments in rupees and from abroad', 'Stock synced with the packing house', 'Courier labels and tracking on every order'],
+  },
+  gym: {
+    url: 'app.summitfitness.example', name: 'Summit Fitness', product: 'Gym membership', view: 'Front desk',
+    colors: { accent: '#9c3d54', bg: '#fff6f2', ink: '#2e1218', soft: '#f8e1e2' },
+    nav: ['Members', 'Check-ins', 'Plans', 'Classes', 'Trainers', 'Payments'],
+    title: 'Front desk',
+    kpis: [['Active members', '428', '22 new this month'], ['Check-ins today', '137', 'busiest 6–8 am'], ['Renewals due', '19', 'this week']],
+    listTitle: 'Check-ins',
+    rows: [['Riya Thapa', 'Quarterly', '6:42 am', 'ok'], ['Karma Sherpa', 'Monthly', 'Ends in 3 days', 'warn'], ['Anil Gurung', 'PT · Dawa', 'In session', 'info']],
+    chartTitle: 'Check-ins · last 7 days', chart: [76, 84, 70, 88, 80, 52, 40],
+    modules: ['Plans & renewals', 'QR check-in', 'Class booking', 'Trainer schedules', 'Reminders', 'Member app', 'Payments'],
+    log: ['Members and plans moved off the paper register', 'QR check-in at the door', 'Renewal reminders by WhatsApp and SMS', 'Members book classes in the app'],
+  },
+  hospital: {
+    url: 'his.mirikcare.example', name: 'Mirik Care Hospital', product: 'Hospital management', view: 'Reception',
+    colors: { accent: '#0f7a6c', bg: '#f0f8f6', ink: '#0c2420', soft: '#d8eee9' },
+    nav: ['OPD', 'Patients', 'Beds', 'Pharmacy', 'Lab', 'Billing'],
+    title: 'OPD today',
+    kpis: [['OPD visits', '164', '12 in queue'], ['Beds occupied', '38 / 50', '76%'], ['Lab reports', '52', '9 pending']],
+    listTitle: 'Queue',
+    rows: [['Token 41 · Dr Pradhan', 'General', 'In consult', 'info'], ['Token 42 · Dr Lepcha', 'Paediatrics', 'Waiting', 'warn'], ['Token 38 · Dr Pradhan', 'Lab', 'Report ready', 'ok']],
+    chartTitle: 'OPD visits · last 7 days', chart: [70, 82, 76, 90, 86, 64, 38],
+    modules: ['Registration & tokens', 'OPD & doctors', 'Beds & IPD', 'Pharmacy stock', 'Lab reports', 'Billing & insurance', 'Patient records'],
+    log: ['Doctors, beds and pharmacy stock set up', 'Patients get a token and an SMS when called', 'Lab reports reach doctors and patients', 'Bills, insurance and records in one place'],
   },
 };
 
@@ -152,53 +169,50 @@ const studio = document.querySelector('.studio');
 if (studio) {
   const tabs = [...studio.querySelectorAll('[role="tab"]')];
   const panel = studio.querySelector('[role="tabpanel"]');
-  const site = studio.querySelector('[data-f="site"]');
+  const app = studio.querySelector('[data-f="app"]');
   const field = (name) => studio.querySelector(`[data-f="${name}"]`);
   const CYCLE = 6000;
-  let current = 'tea';
+  let current = tabs[0].dataset.solution;
   let timer = null;
   let auto = !reduceMotion.matches;
   let visible = false;
 
   function listItems(el, items, make) {
-    el.replaceChildren(...items.map((item) => {
+    el.replaceChildren(...items.map((item, i) => {
       const li = document.createElement('li');
-      make(li, item);
+      make(li, item, i);
       return li;
     }));
   }
 
+  function el(tag, text, className) {
+    const e = document.createElement(tag);
+    if (text != null) e.textContent = text;
+    if (className) e.className = className;
+    return e;
+  }
+
   function render(key) {
-    const s = SITES[key];
-    field('url').textContent = s.url;
-    field('name').textContent = s.name;
-    field('cart').textContent = s.cart;
-    field('kicker').textContent = s.kicker;
-    field('title').textContent = s.title;
-    field('sub').textContent = s.sub;
-    field('cta').textContent = s.cta;
-    site.style.setProperty('--s-accent', s.colors.accent);
-    site.style.setProperty('--s-bg', s.colors.bg);
-    site.style.setProperty('--s-ink', s.colors.ink);
-    site.style.setProperty('--s-soft', s.colors.soft);
-    listItems(field('items'), s.items, (li, [name, meta, hue]) => {
-      const swatch = document.createElement('i');
-      swatch.style.setProperty('--h', hue);
-      const b = document.createElement('b');
-      b.textContent = name;
-      const span = document.createElement('span');
-      span.textContent = meta;
-      li.append(swatch, b, span);
-    });
+    const s = SOLUTIONS[key];
+    for (const f of ['url', 'name', 'product', 'view', 'title', 'listTitle', 'chartTitle']) field(f).textContent = s[f];
+    for (const [k, v] of Object.entries(s.colors)) app.style.setProperty(`--s-${k}`, v);
+    listItems(field('nav'), s.nav, (li, text, i) => { li.textContent = text; if (i === 0) li.className = 'on'; });
+    listItems(field('kpis'), s.kpis, (li, [label, value, note]) => li.append(el('span', label), el('b', value), el('small', note)));
+    listItems(field('rows'), s.rows, (li, [what, detail, status, tone]) => li.append(el('b', what), el('span', detail), el('em', status, tone)));
+    field('chart').replaceChildren(...s.chart.map((v) => {
+      const bar = document.createElement('i');
+      bar.style.setProperty('--v', v);
+      return bar;
+    }));
     listItems(field('modules'), s.modules, (li, text) => { li.textContent = text; });
     const log = field('log');
     listItems(log, s.log, (li, text) => { li.textContent = text; });
     // Restart the staggered "building" animations.
-    for (const el of [site, log]) {
-      el.classList.remove('building', 'typing');
-      void el.offsetWidth;
+    for (const e of [app, log]) {
+      e.classList.remove('building', 'typing');
+      void e.offsetWidth;
     }
-    site.classList.add('building');
+    app.classList.add('building');
     log.classList.add('typing');
   }
 
@@ -206,7 +220,7 @@ if (studio) {
     if (key === current) return;
     current = key;
     tabs.forEach((t) => {
-      const on = t.dataset.site === key;
+      const on = t.dataset.solution === key;
       t.setAttribute('aria-selected', String(on));
       t.tabIndex = on ? 0 : -1;
       t.classList.remove('timing');
@@ -222,20 +236,20 @@ if (studio) {
 
   function schedule() {
     clearTimeout(timer);
-    const tab = tabs.find((t) => t.dataset.site === current);
+    const tab = tabs.find((t) => t.dataset.solution === current);
     tab.classList.remove('timing');
     if (!auto || !visible) return;
     void tab.offsetWidth;
     tab.style.setProperty('--cycle', `${CYCLE}ms`);
     tab.classList.add('timing');
     timer = setTimeout(() => {
-      const i = tabs.findIndex((t) => t.dataset.site === current);
-      select(tabs[(i + 1) % tabs.length].dataset.site);
+      const i = tabs.findIndex((t) => t.dataset.solution === current);
+      select(tabs[(i + 1) % tabs.length].dataset.solution);
     }, CYCLE);
   }
 
   // Choosing a business yourself stops the tour.
-  tabs.forEach((t) => t.addEventListener('click', () => { auto = false; select(t.dataset.site); schedule(); }));
+  tabs.forEach((t) => t.addEventListener('click', () => { auto = false; select(t.dataset.solution); schedule(); }));
   studio.querySelector('[role="tablist"]').addEventListener('keydown', (e) => {
     const i = tabs.indexOf(document.activeElement);
     if (i < 0) return;
@@ -247,7 +261,7 @@ if (studio) {
     if (!next) return;
     e.preventDefault();
     auto = false;
-    select(next.dataset.site, { focus: true });
+    select(next.dataset.solution, { focus: true });
   });
 
   // Only tour while the studio is on screen.
@@ -267,7 +281,7 @@ if (isMac) document.querySelectorAll('.kbd-mod').forEach((k) => { k.textContent 
 const goTo = (id) => () => document.getElementById(id)?.scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth' });
 const COMMANDS = [
   { label: 'Start a project', icon: '✦', kind: 'Action', run: goTo('contact'), keys: 'contact hire quote email brief' },
-  { label: 'See what we build', icon: '▦', kind: 'Section', run: goTo('studio'), keys: 'studio examples demo' },
+  { label: 'See what we build', icon: '▦', kind: 'Section', run: goTo('studio'), keys: 'studio examples demo school fleet travel ecommerce shop gym hospital' },
   { label: 'Services', icon: '⚙', kind: 'Section', run: goTo('services'), keys: 'solutions business systems website store payments gst stock bookings app android ocr hosting nepali english languages' },
   { label: 'How we work', icon: '→', kind: 'Section', run: goTo('process'), keys: 'process steps' },
   { label: 'Pushtakalaya', icon: '📚', kind: 'Section', run: goTo('pushtakalaya'), keys: 'books reader library पुस्तकालय' },
