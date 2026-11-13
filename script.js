@@ -113,7 +113,7 @@ const SOLUTIONS = {
     rows: [['Pema Lama · IX B', '₹12,500', 'Due', 'warn'], ['Arjun Rai · VII A', '₹9,800', 'Paid', 'ok'], ['Sonam Bhutia · X A', '₹14,200', 'Reminded', 'info']],
     chartTitle: 'Attendance · this week', chart: [88, 94, 92, 96, 90, 94],
     modules: ['Admissions', 'Fees & receipts', 'Attendance', 'Exams & report cards', 'Timetable', 'Staff & payroll', 'Parent app'],
-    log: ['Classes, staff and 648 students imported', 'Fees collected online with receipts', 'Teachers mark attendance on their phones', 'Report cards in the parent app on Google Play'],
+    log: ['Classes, staff and 648 students imported', 'Fees collected online with receipts', 'Teachers mark attendance on their phones', 'Report cards in the parent app on Android and iOS'],
   },
   fleet: {
     url: 'ops.teestatravels.example', name: 'Teesta Travels', product: 'Fleet management', view: 'Dispatch',
@@ -282,7 +282,7 @@ const goTo = (id) => () => document.getElementById(id)?.scrollIntoView({ behavio
 const COMMANDS = [
   { label: 'Start a project', icon: '✦', kind: 'Action', run: goTo('contact'), keys: 'contact hire quote email brief' },
   { label: 'See what we build', icon: '▦', kind: 'Section', run: goTo('studio'), keys: 'studio examples demo school fleet travel ecommerce shop gym hospital' },
-  { label: 'Services', icon: '⚙', kind: 'Section', run: goTo('services'), keys: 'solutions business systems website store payments gst stock bookings app android ocr hosting nepali english languages' },
+  { label: 'Services', icon: '⚙', kind: 'Section', run: goTo('services'), keys: 'solutions business systems website store payments gst stock bookings app android ios iphone desktop windows mac ocr hosting nepali english hindi bengali indian world languages' },
   { label: 'How we work', icon: '→', kind: 'Section', run: goTo('process'), keys: 'process steps' },
   { label: 'Pushtakalaya', icon: '📚', kind: 'Section', run: goTo('pushtakalaya'), keys: 'books reader library पुस्तकालय' },
   { label: 'Research', icon: '🔬', kind: 'Section', run: goTo('research'), keys: 'ai language nepali ocr data' },
