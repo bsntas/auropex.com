@@ -128,7 +128,7 @@ const SOLUTIONS = {
     log: ['24 vehicles and 30 drivers added', 'Phone, web and agent bookings on one board', 'Drivers start and close trips in their app', 'Service and permit renewals flagged ahead'],
   },
   shop: {
-    url: 'admin.glenmist.example', name: 'Glenmist Tea', product: 'E-commerce platform', view: 'Store admin',
+    url: 'admin.glenmist.example', name: 'Glenmist Tea', product: 'E-commerce', view: 'Store admin',
     colors: { accent: '#2f6b3a', bg: '#f4f1e6', ink: '#1d2a1f', soft: '#e4ead9' },
     nav: ['Overview', 'Orders', 'Products', 'Inventory', 'Customers', 'Payouts'],
     title: 'Store overview',
@@ -370,7 +370,12 @@ document.addEventListener('keydown', (e) => {
 /* ---------- Project brief → email ---------- */
 const brief = document.getElementById('brief');
 const briefWarn = document.getElementById('brief-warn');
-brief.addEventListener('input', () => { briefWarn.hidden = true; });
+// A website is built as an add-on to a solution: say so as soon as it's the only thing asked for.
+const onlyWebsite = (data) => {
+  const needs = data.getAll('need');
+  return needs.length === 1 && needs[0] === 'Website add-on' && !String(data.get('message') || '').trim();
+};
+brief.addEventListener('input', () => { briefWarn.hidden = !onlyWebsite(new FormData(brief)); });
 brief.addEventListener('submit', (e) => {
   e.preventDefault();
   const data = new FormData(brief);
@@ -378,8 +383,7 @@ brief.addEventListener('submit', (e) => {
   const name = String(data.get('name') || '').trim();
   const business = String(data.get('business') || '').trim();
   const message = String(data.get('message') || '').trim();
-  // A website comes as an add-on to a solution, so ask what the business needs first.
-  if (needs.length === 1 && needs[0] === 'Website add-on' && !message) {
+  if (onlyWebsite(data)) {
     briefWarn.hidden = false;
     return;
   }
