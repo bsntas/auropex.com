@@ -391,6 +391,8 @@ kbd {
   100% { transform: translateY(-6.48em); }
 }
 .hero .lead { max-width: 56ch; }
+.hero .hero-reach { margin-top: 10px; color: var(--heading); font-weight: 500; }
+.hero-reach .serif { color: var(--gold-text); font-weight: 600; }
 .hero-chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 34px 0 0; }
 .hero-chips li {
   font: 500 12.5px/1 var(--mono); color: var(--muted);
