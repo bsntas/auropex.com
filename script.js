@@ -98,8 +98,9 @@ document.addEventListener('pointermove', (e) => {
   card.style.setProperty('--my', `${e.clientY - r.top}px`);
 }, { passive: true });
 
-/* ---------- Studio: example sites ---------- */
-// Illustrative businesses (the page says so). Each is the same building blocks, shaped differently.
+/* ---------- Studio: example solutions ---------- */
+// Illustrative businesses (the page says so). The preview is the customer-facing part; modules and log
+// cover the whole solution behind it. Each is the same building blocks, shaped differently.
 const SITES = {
   tea: {
     url: 'glenmist.example', name: 'Glenmist Tea', cart: '2',
@@ -109,8 +110,8 @@ const SITES = {
     sub: 'Garden-fresh Darjeeling tea, packed at the estate and shipped across India.',
     cta: 'Shop the harvest',
     items: [['First Flush', '₹780 · 100 g', 95], ['Muscatel', '₹920 · 100 g', 40], ['Autumnal', '₹640 · 100 g', 20]],
-    modules: ['Online store', 'UPI & cards', 'GST invoices', 'Order tracking'],
-    log: ['Catalogue set up with photos and prices', 'UPI and card checkout connected', 'GST invoice sent with every order', 'Live, backed up and monitored'],
+    modules: ['Online store', 'UPI & cards', 'GST invoices', 'Stock & dispatch', 'Sales reports'],
+    log: ['Catalogue and stock kept in step with packing', 'UPI and card checkout connected', 'GST invoice sent with every order', 'Dispatch list and sales report each morning'],
   },
   stay: {
     url: 'kanchanview.example', name: 'Kanchan View', cart: '1',
@@ -120,8 +121,8 @@ const SITES = {
     sub: 'Four rooms, home-cooked meals and a view of the range from every window.',
     cta: 'Check dates',
     items: [['Sunrise Room', '₹2,400 / night', 25], ['Family Suite', '₹3,800 / night', 200], ['Attic Room', '₹1,900 / night', 330]],
-    modules: ['Booking calendar', 'Advance payment', 'WhatsApp alerts', 'Nepali & English'],
-    log: ['Rooms, rates and seasons added', 'Calendar stops double bookings', 'Advance paid by UPI on booking', 'Guests get directions in their language'],
+    modules: ['Booking calendar', 'Advance payment', 'Housekeeping list', 'Guest register', 'Nepali & English'],
+    log: ['Rooms, rates and seasons added', 'Calendar stops double bookings', 'Advance paid by UPI on booking', 'Housekeeping and guest register kept for staff'],
   },
   cafe: {
     url: 'mallroadbakery.example', name: 'Mall Road Bakery', cart: '3',
@@ -131,8 +132,8 @@ const SITES = {
     sub: 'Order ahead for pickup, or have it brought to your door in town.',
     cta: 'Order now',
     items: [['Ginger honey cake', '₹420', 30], ['Cheese buns', '₹60 each', 45], ['Chhurpi cookies', '₹180 / box', 15]],
-    modules: ['Menu & ordering', 'Pickup slots', 'Delivery in town', 'Kitchen screen'],
-    log: ['Menu with photos and daily specials', 'Pickup slots that fill as orders come', 'Orders show on the kitchen screen', 'Paid by UPI, receipt by SMS'],
+    modules: ['Menu & ordering', 'Pickup slots', 'Kitchen screen', 'Ingredient stock', 'Daily takings'],
+    log: ['Menu with photos and daily specials', 'Orders show on the kitchen screen', 'Ingredients counted down as orders come', 'Paid by UPI, takings totalled each night'],
   },
   school: {
     url: 'hillsideacademy.example', name: 'Hillside Academy', cart: '!',
@@ -142,8 +143,8 @@ const SITES = {
     sub: 'Notices, fees and results for parents, in Nepali and English, on the web and Android.',
     cta: 'Apply online',
     items: [['Pay term fees', 'UPI or card', 215], ['Notice board', '3 new notices', 260], ['Results', 'Class X', 160]],
-    modules: ['Parent app', 'Fee collection', 'Notices & SMS', 'Nepali & English'],
-    log: ['Classes and parents imported', 'Fees collected online with receipts', 'Notices reach every parent at once', 'Android app published on Google Play'],
+    modules: ['Parent app', 'Fee collection', 'Attendance', 'Results & records', 'Notices & SMS'],
+    log: ['Classes, staff and parents imported', 'Fees collected online with receipts', 'Attendance and results kept by teachers', 'Android app published on Google Play'],
   },
 };
 
@@ -267,11 +268,11 @@ const goTo = (id) => () => document.getElementById(id)?.scrollIntoView({ behavio
 const COMMANDS = [
   { label: 'Start a project', icon: '✦', kind: 'Action', run: goTo('contact'), keys: 'contact hire quote email brief' },
   { label: 'See what we build', icon: '▦', kind: 'Section', run: goTo('studio'), keys: 'studio examples demo' },
-  { label: 'Services', icon: '⚙', kind: 'Section', run: goTo('services'), keys: 'website store payments gst app android ocr hosting nepali english languages' },
+  { label: 'Services', icon: '⚙', kind: 'Section', run: goTo('services'), keys: 'solutions business systems website store payments gst stock bookings app android ocr hosting nepali english languages' },
   { label: 'How we work', icon: '→', kind: 'Section', run: goTo('process'), keys: 'process steps' },
   { label: 'Pushtakalaya', icon: '📚', kind: 'Section', run: goTo('pushtakalaya'), keys: 'books reader library पुस्तकालय' },
   { label: 'Research', icon: '🔬', kind: 'Section', run: goTo('research'), keys: 'ai language nepali ocr data' },
-  { label: 'About us', icon: '⛰', kind: 'Section', run: goTo('about'), keys: 'darjeeling company' },
+  { label: 'About us', icon: '⛰', kind: 'Section', run: goTo('about'), keys: 'darjeeling queen of the hills india world company' },
   { label: 'Switch theme', icon: '◐', kind: 'Action', run: () => toggleTheme(null), keys: 'dark light mode' },
   { label: 'Open the Pushtakalaya beta', icon: '↗', kind: 'Link', run: () => window.open('https://beta.pushtakalaya.com', '_blank', 'noopener'), keys: 'read books' },
   { label: 'Publish with us', icon: '↗', kind: 'Link', run: () => window.open('https://beta-portal.pushtakalaya.com', '_blank', 'noopener'), keys: 'author publisher portal' },
