@@ -391,6 +391,8 @@ kbd {
   100% { transform: translateY(-6.48em); }
 }
 .hero .lead { max-width: 56ch; }
+.hero .hero-reach { margin-top: 10px; color: var(--heading); font-weight: 500; }
+.hero-reach .serif { color: var(--gold-text); font-weight: 600; }
 .hero-chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 34px 0 0; }
 .hero-chips li {
   font: 500 12.5px/1 var(--mono); color: var(--muted);
@@ -624,6 +626,24 @@ kbd {
 .js .log.typing li:nth-child(4) { animation-delay: 1.3s; }
 @keyframes log-in { from { opacity: 0; transform: translateX(-8px); } }
 .side-note { margin-top: auto; padding-top: 22px; font-size: 12px; color: var(--muted); opacity: .8; }
+
+/* ---------- Services: what a solution includes ---------- */
+.layers {
+  list-style: none; margin: 0 0 16px; padding: 0;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; counter-reset: layer;
+}
+.layers li {
+  position: relative; padding: 22px 24px; border-radius: var(--radius);
+  background: var(--glass); border: 1px solid var(--line);
+}
+.layers li + li::before {
+  content: "+"; position: absolute; left: -16px; top: 50%; width: 16px; transform: translateY(-50%);
+  text-align: center; font: 500 16px/1 var(--mono); color: var(--muted);
+}
+.layer-n { display: block; font: 500 11.5px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--gold-text); margin-bottom: 10px; }
+.layers li:nth-child(2) .layer-n { color: var(--teal-text); }
+.layers b { font: 650 18px/1.25 var(--display); letter-spacing: -.02em; color: var(--heading); }
+.layers p { margin-top: 6px; color: var(--muted); font-size: 15px; }
 
 /* ---------- Services bento ---------- */
 .bento {
@@ -1063,6 +1083,8 @@ legend, .field > span { font: 500 12px/1 var(--mono); text-transform: uppercase;
   .fc-1 { left: -2%; }
   .fc-2 { right: -2%; }
   .bento { grid-template-columns: 1fr; }
+  .layers { grid-template-columns: 1fr; gap: 10px; }
+  .layers li + li::before { display: none; }
   .bento .card { grid-column: span 1 !important; min-height: 0; }
   .b-web, .b-ops { flex-direction: column !important; align-items: stretch !important; }
   .b-web .card-copy { align-self: auto; order: -1; }

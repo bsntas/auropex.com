@@ -2,7 +2,11 @@
 
 The website of Auropex Software Labs LLP: a static one-page site (`index.html`, `styles.css`, `script.js`) with no build step. Open `index.html` in a browser, or serve the folder with any static host.
 
-Sections: hero, capabilities marquee, the studio (example sites being built), services (bento grid), how we work, Pushtakalaya (our product and proof), research, about, start a project.
+Sections: hero, capabilities marquee, the studio (example solutions being built), services (what a solution includes, then a bento grid), how we work, Pushtakalaya (our product and proof), research, about, start a project.
+
+## Positioning
+
+Auropex builds and runs whole business solutions, not websites: the systems a business runs on (orders, bookings, billing and GST, stock, staff, records), with a website or app as one part where it helps. Copy should never make the website the deliverable. Reach is "from Darjeeling, the Queen of the Hills, to the whole of India and the world", not "Darjeeling first, India later".
 
 ## Brand
 
@@ -18,7 +22,7 @@ Images that differ by theme come in pairs, `class="for-light"` and `class="for-d
 
 - **Aurora**: blurred, drifting gradient blobs (`.aurora`) behind the hero and the contact card, with a film-grain overlay (`body::after`) so large gradients don't band.
 - **Reveal on scroll**: `.reveal` elements fade in with scroll-driven animations (`animation-timeline: view()`). Browsers without them get the same through an `IntersectionObserver` in `script.js`; with neither, nothing is hidden. The reading-progress bar and the "how we work" line also run on scroll timelines.
-- **The studio** (`#studio`): tabs for four illustrative businesses (tea estate, homestay, bakery, school). Each is an entry in `SITES` in `script.js` (address, colours, copy, items, modules, build log); the first is also written in the HTML so the page reads without the script. The preview lays itself out with container queries, switches with a View Transition, and tours the examples while on screen until the visitor picks one.
+- **The studio** (`#studio`): tabs for four illustrative businesses (tea estate, homestay, bakery, school). The preview is what customers see; the side lists the whole solution behind it. Each is an entry in `SITES` in `script.js` (address, colours, copy, items, modules, build log); the first is also written in the HTML so the page reads without the script. The preview lays itself out with container queries, switches with a View Transition, and tours the examples while on screen until the visitor picks one.
 - **Spotlight cards**: any `.card` gets a soft glow that follows the pointer (`--mx`/`--my`).
 - **Quick search**: Ctrl/⌘ K or `/` opens a command palette (`<dialog id="cmdk">`, `COMMANDS` in `script.js`) to jump to sections, switch theme, or email us.
 - **Start a project**: the brief form builds an email (subject from the chosen needs) and opens the visitor's email app; nothing is sent from the page.
