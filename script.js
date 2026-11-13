@@ -100,7 +100,7 @@ document.addEventListener('pointermove', (e) => {
 
 /* ---------- Studio: example solutions ---------- */
 // Illustrative businesses (the page says so). The preview is the dashboard its people run the business from;
-// modules and log cover the whole solution around it (apps, website, payments, records).
+// modules and log cover the whole solution around it (apps, payments, records). No website-only examples.
 // kpis: [label, value, note]; rows: [what, detail, status, tone ok|warn|info]; chart: bar heights 0–100.
 const SOLUTIONS = {
   school: {
@@ -369,10 +369,17 @@ document.addEventListener('keydown', (e) => {
 
 /* ---------- Project brief → email ---------- */
 const brief = document.getElementById('brief');
+const briefWarn = document.getElementById('brief-warn');
+brief.addEventListener('change', () => { briefWarn.hidden = true; });
 brief.addEventListener('submit', (e) => {
   e.preventDefault();
   const data = new FormData(brief);
   const needs = data.getAll('need');
+  // A website is only an add-on to a solution: don't write a website-only enquiry.
+  if (needs.length === 1 && needs[0] === 'Website add-on') {
+    briefWarn.hidden = false;
+    return;
+  }
   const name = String(data.get('name') || '').trim();
   const business = String(data.get('business') || '').trim();
   const message = String(data.get('message') || '').trim();

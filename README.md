@@ -6,7 +6,7 @@ Sections: hero, capabilities marquee, the studio (example solutions being built)
 
 ## Positioning
 
-Auropex builds and runs whole business solutions, not websites: the systems a business runs on (orders, bookings, billing and GST, stock, staff, records), with a website or app as one part where it helps. Copy should never make the website the deliverable. Reach is "from Darjeeling, the Queen of the Hills, to the whole of India and the world", not "Darjeeling first, India later".
+Auropex builds and runs whole business solutions, not websites: the systems a business runs on (orders, bookings, billing and GST, stock, staff, records), with apps for staff and customers. A website is only ever an add-on to a solution: we don't take website-only projects, and copy should never offer one or make the website the deliverable. Reach is "from Darjeeling, the Queen of the Hills, to the whole of India and the world", not "Darjeeling first, India later".
 
 ## Brand
 
